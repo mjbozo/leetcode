@@ -18,8 +18,6 @@ fn find_duplicate(nums: Vec<i32>) -> i32 {
         if sum > 0 && sum != i as i32 {
             return i as i32;
         }
-
-        sum = 0
     }
 
     return 0;
