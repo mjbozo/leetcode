@@ -37,33 +37,6 @@ fn max_area(height: Vec<i32>) -> i32 {
     return maximum;
 }
 
-// fn max_area(height: Vec<i32>) -> i32 {
-//     let mut maximum = 0;
-//     let mut prev_left_height = 0;
-//     for left in 0..(height.len() - 1) {
-//         if height[left] <= prev_left_height {
-//             continue;
-//         }
-
-//         let mut prev_right_height = 0;
-//         for right in ((left + 1)..height.len()).rev() {
-//             if height[right] <= prev_right_height {
-//                 continue;
-//             }
-
-//             let area = (right - left) as i32 * cmp::min(height[left], height[right]);
-//             if area > maximum {
-//                 maximum = area;
-//             }
-//             prev_right_height = height[right];
-//         }
-
-//         prev_left_height = height[left];
-//     }
-    
-//     return maximum as i32;
-// }
-
 #[cfg(test)]
 mod test {
     use super::*;
