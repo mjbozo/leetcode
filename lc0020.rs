@@ -1,3 +1,6 @@
+// LeetCode problem 0020: Valid Parentheses
+// https://leetcode.com/problems/valid-parentheses/description/
+
 use std::collections::VecDeque;
 
 fn main() {
