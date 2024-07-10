@@ -1,7 +1,7 @@
-// LeetCode problem 0141: Linked List Cycle
-// https://leetcode.com/problems/linked-list-cycle/description/
+// LeetCode problem 0142: Linked List Cycle II
+// https://leetcode.com/problems/linked-list-cycle-ii/description/
 
-package lc0141
+package main
 
 import (
 	"fmt"
@@ -20,21 +20,31 @@ func main() {
 	node1.Next = &rest
 
 	result := hasCycle(&head)
-	fmt.Printf("Result = %v\n", result)
+	fmt.Printf("Result = %v\n", result.Val)
 }
 
-func hasCycle(head *ListNode) bool {
-	slow := head
-	fast := head
+func hasCycle(head *ListNode) *ListNode {
+	if head == nil || head.Next == nil {
+		return nil
+	}
 
+	slow := head
+	fast := head.Next.Next
+
+	if slow == fast {
+		return head
+	}
+
+	index := 0
 	for fast != nil && fast.Next != nil {
+		index++
 		slow = slow.Next
 		fast = fast.Next.Next
 
 		if slow == fast {
-			return true
+			return slow
 		}
 	}
 
-	return false
+	return nil
 }
