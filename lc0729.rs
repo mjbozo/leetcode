@@ -11,7 +11,7 @@ trait Overlap {
     fn overlaps(&self, other: Self) -> bool;
 }
 
-impl Overlap for MyCalendar {
+impl Overlap for Range<i32> {
     fn overlaps(&self, other: Self) -> bool {
         return self.start < other.end && other.start < self.end;
     }
