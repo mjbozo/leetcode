@@ -7,7 +7,6 @@ fn main() {
 }
 
 fn parse_bool_expr(expression: String) -> bool {
-    println!("Evaluting {}", expression);
     let mut chars = expression.chars();
     return match chars.nth(0).unwrap() {
         't' => true,
@@ -20,7 +19,6 @@ fn parse_bool_expr(expression: String) -> bool {
 }
 
 fn eval_and_subexpr(subexpr: String) -> bool {
-    println!("Evalutating AND: {}", subexpr);
     let mut skip = false;
     let mut counter = 0;
     for (i, c) in subexpr.chars().enumerate() {
@@ -42,39 +40,33 @@ fn eval_and_subexpr(subexpr: String) -> bool {
             'f' => return false,
             '&' => {
                 if !eval_and_subexpr(subexpr[i + 2..].to_owned()) {
-                    println!("{} evaluates to false", subexpr);
                     return false;
                 }
                 skip = true;
             }
             '|' => {
                 if !eval_or_subexpr(subexpr[i + 2..].to_owned()) {
-                    println!("{} evaluates to false", subexpr);
                     return false;
                 }
                 skip = true;
             }
             '!' => {
                 if !invert_subexpr(subexpr[i + 2..].to_owned()) {
-                    println!("{} evaluates to false", subexpr);
                     return false;
                 }
                 skip = true;
             }
             ')' => {
-                println!("{} evaluates to true", subexpr);
                 return true;
             }
             _ => {}
         }
     }
 
-    println!("{} evaluates to true", subexpr);
     return true;
 }
 
 fn eval_or_subexpr(subexpr: String) -> bool {
-    println!("Evalutating OR: {}", subexpr);
     let mut skip = false;
     let mut counter = 0;
 
@@ -97,39 +89,33 @@ fn eval_or_subexpr(subexpr: String) -> bool {
             't' => return true,
             '&' => {
                 if eval_and_subexpr(subexpr[i + 2..].to_owned()) {
-                    println!("{} evaluates to true", subexpr);
                     return true;
                 }
                 skip = true;
             }
             '|' => {
                 if eval_or_subexpr(subexpr[i + 2..].to_owned()) {
-                    println!("{} evaluates to true", subexpr);
                     return true;
                 }
                 skip = true;
             }
             '!' => {
                 if invert_subexpr(subexpr[i + 2..].to_owned()) {
-                    println!("{} evaluates to true", subexpr);
                     return true;
                 }
                 skip = true;
             }
             ')' => {
-                println!("{} evaluates to false", subexpr);
                 return false;
             }
             _ => {}
         }
     }
 
-    println!("{} evaluates to false", subexpr);
     return false;
 }
 
 fn invert_subexpr(subexpr: String) -> bool {
-    println!("Evaluating NOT: {}", subexpr);
     return !parse_bool_expr(subexpr);
 }
 
