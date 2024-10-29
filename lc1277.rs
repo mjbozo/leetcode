@@ -30,8 +30,6 @@ fn count_squares(matrix: Vec<Vec<i32>>) -> i32 {
         }
     }
 
-    println!("dp = {:?}", dp);
-
     let mut squares = 0;
     for y in 0..m {
         for x in 0..n {
