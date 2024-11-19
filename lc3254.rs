@@ -23,16 +23,10 @@ fn results_array(nums: Vec<i32>, k: i32) -> Vec<i32> {
     for i in 0..s {
         let tri = (nums[i + k - 1] * (nums[i + k - 1] + 1)) / 2;
         let sub = ((nums[i] - 1) * nums[i]) / 2;
-        println!(
-            "i = {i}, tri = {tri}, sub = {sub}, sum = {sum}, nums = {:?}",
-            &nums[i..i + k]
-        );
 
         if nums[i + k - 1] == nums[i] + k as i32 - 1 && sum == (tri - sub) {
-            println!("Pushing {}", nums[i + k - 1]);
             results.push(nums[i + k - 1]);
         } else {
-            println!("Pushing -1");
             results.push(-1);
         }
 
