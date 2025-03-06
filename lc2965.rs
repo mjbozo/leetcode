@@ -7,8 +7,6 @@ fn main() {
 }
 
 fn find_missing_and_repeated_values(grid: Vec<Vec<i32>>) -> Vec<i32> {
-    // sum of squares = (n * (n+1) * (2n + 1)) / 6
-
     let n = grid.len();
     let mut sum = 0;
     let mut sum_squares = 0;
@@ -26,9 +24,6 @@ fn find_missing_and_repeated_values(grid: Vec<Vec<i32>>) -> Vec<i32> {
 
     let sum_diff = expected_sum - sum;
     let squ_diff = expected_sum_squares - sum_squares;
-
-    println!("Expected Sum = {expected_sum}, Sum = {sum}");
-    println!("Expected Squ = {expected_sum_squares}, Squ = {sum_squares}");
 
     let a = ((squ_diff / sum_diff) - sum_diff) / 2;
     let b = sum_diff + a;
