@@ -1,7 +1,7 @@
 // LeetCode problem 0141: Linked List Cycle
 // https://leetcode.com/problems/linked-list-cycle/description/
 
-package lc0141
+package main
 
 import (
 	"fmt"

@@ -1,7 +1,7 @@
 // LeetCode problem 0023: Merge K Sorted Lists
 // https://leetcode.com/problems/merge-k-sorted-lists/description/
 
-package lc0019
+package main
 
 import (
 	"fmt"
